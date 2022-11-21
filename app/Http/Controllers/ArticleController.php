@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use Image;
 
 class ArticleController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +21,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('admin.article.index');
+        $artikel = Article::orderBy('id')->paginate(5);
+        $no = 5 * ($artikel->currentPage()-1);
+        return view('admin.article.index',compact('artikel','no'));
     }
 
     /**
@@ -36,7 +44,23 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        //
+        $artikel = new Article;
+        $artikel->judul = $request->judul;
+        $artikel->ringkasan = $request->ringkasan;
+        $artikel->artikel = $request->artikel;
+        $artikel->uploaded_at = $request->uploaded_at;
+
+        $foto = $request->gambar;
+        $namaFile = time().'.'.$foto->getClientOriginalExtension();
+
+        Image::make($foto)->resize(1200,600,function ($constraint) {
+            $constraint->aspectRatio();
+            })->save('asset-article/'.$namaFile);
+        $foto->move('uploaded-img/', $namaFile);
+
+        $artikel->gambar = $namaFile;
+        $artikel->save();
+        return redirect('/article/index')->with('pesan','Artikel berhasil ditambahkan');
     }
 
     /**
@@ -45,9 +69,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        $artikel = Article::find($id);
+        return view('admin.article.show',compact('artikel'));
     }
 
     /**
@@ -56,9 +81,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        //
+        $artikel = Article::find($id);
+        return view('admin.article.edit',compact('artikel'));
     }
 
     /**
@@ -68,9 +94,25 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateArticleRequest $request, Article $article)
+    public function update(UpdateArticleRequest $request, $id)
     {
-        //
+        $artikel = Article::find($id);
+        $artikel->judul = $request->judul;
+        $artikel->ringkasan = $request->ringkasan;
+        $artikel->artikel = $request->artikel;
+        $artikel->uploaded_at = $request->uploaded_at;
+
+        $foto = $request->gambar;
+        $namaFile = time().'.'.$foto->getClientOriginalExtension();
+
+        Image::make($foto)->resize(1200,600,function ($constraint) {
+            $constraint->aspectRatio();
+            })->save('asset-article/'.$namaFile);
+        $foto->move('uploaded-img/', $namaFile);
+
+        $artikel->gambar = $namaFile;
+        $artikel->save();
+        return redirect('/article/index')->with('pesan','Artikel berhasil diubah');
     }
 
     /**
@@ -79,8 +121,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $artikel = Article::find($id);
+        $artikel->delete();
+        return redirect('/article/index')->with('pesan','Artikel berhasil dihapus');
     }
 }

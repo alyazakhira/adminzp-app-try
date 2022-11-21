@@ -2,85 +2,66 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\CarouselHeader;
-use App\Http\Requests\StoreCarouselHeaderRequest;
-use App\Http\Requests\UpdateCarouselHeaderRequest;
+use Image;
 
 class CarouselHeaderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function __construct()
     {
-        return view('admin.carousel-header.index');
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+        $header1 = CarouselHeader::find(1);
+        $header2 = CarouselHeader::find(2);
+        $header3 = CarouselHeader::find(3);
+        return view('admin.carousel-header.index',compact('header1','header2','header3'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreCarouselHeaderRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreCarouselHeaderRequest $request)
-    {
-        //
-    }
+    public function update(Request $request){
+        $header1 = CarouselHeader::find(1);
+        $header2 = CarouselHeader::find(2);
+        $header3 = CarouselHeader::find(3);
+        $namaFile1 = "";
+        $namaFile2 = "";
+        $namaFile3 = "";
+        $foto1 = $request->header1;
+        $foto2 = $request->header2;
+        $foto3 = $request->header3;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\CarouselHeader  $carouselHeader
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CarouselHeader $carouselHeader)
-    {
-        //
-    }
+        if ($foto1 != null) {
+            $namaFile1 = time().'.'.$foto1->getClientOriginalExtension();
+            Image::make($foto1)->resize(1200,600,function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('asset-carousel/'.$namaFile1);
+            $foto1->move('uploaded-img/', $namaFile1);
+        }
+        
+        if ($foto2 != null) {
+            $namaFile2 = time().'.'.$foto2->getClientOriginalExtension();
+            Image::make($foto2)->resize(1200,600,function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('asset-carousel/'.$namaFile2);
+            $foto2->move('uploaded-img/', $namaFile2);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\CarouselHeader  $carouselHeader
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CarouselHeader $carouselHeader)
-    {
-        //
-    }
+        if ($foto3 != null) {
+            $namaFile3 = time().'.'.$foto3->getClientOriginalExtension();
+            Image::make($foto3)->resize(1200,600,function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('asset-carousel/'.$namaFile3);
+            $foto3->move('uploaded-img/', $namaFile3);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCarouselHeaderRequest  $request
-     * @param  \App\Models\CarouselHeader  $carouselHeader
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCarouselHeaderRequest $request, CarouselHeader $carouselHeader)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\CarouselHeader  $carouselHeader
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CarouselHeader $carouselHeader)
-    {
-        //
+        $header1->gambar = $namaFile1;
+        $header2->gambar = $namaFile2;
+        $header3->gambar = $namaFile3;
+        $header1->save();
+        $header2->save();
+        $header3->save();
+        return redirect('/header/index')->with('pesan','Gambar Carousel berhasil diperbarui');
     }
 }

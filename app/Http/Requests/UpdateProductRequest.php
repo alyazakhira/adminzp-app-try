@@ -13,7 +13,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama' => 'required|max:255',
+            'ringkasan' => 'required|max:200',
+            'deskripsi' => 'required',
+            'uploaded_at' => 'required',
+            'gambar'=>'required|mimes:jpeg,jpg,png',
         ];
     }
 }
