@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('admin-layout.form-layout')
 @section('status-icon-prod')
     active
@@ -57,3 +58,12 @@
     </section>
     
 @endsection
+=======
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+</html>
+>>>>>>> 0e4dcf3b16627876d8c5bdf682bf194f1428d660
