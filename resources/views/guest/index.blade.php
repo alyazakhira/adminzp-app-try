@@ -21,11 +21,11 @@
         <link rel="stylesheet" href="asset-style/font-size.css">
         <link rel="stylesheet" href="asset-style/view-style.css">
 
-        <!-- Custom JavaScript -->
-        <script src="asset-js/script.js"></script>
+        <!-- Jquery and Plugin JavaScript -->
+        @include('search-query')
     </head>
 
-    <body>
+    <body id="context">
         
         @include('guest-layout.navbar')
 

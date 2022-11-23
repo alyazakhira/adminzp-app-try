@@ -17,8 +17,9 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="asset-style/custom.css">
         <link rel="stylesheet" href="asset-style/font-size.css">
+        @include('search-query')
     </head>
-    <body>
+    <body id="context">
         @include('guest-layout.navbar')
         <div class="container container-fluid">
 
