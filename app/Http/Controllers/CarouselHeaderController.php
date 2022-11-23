@@ -33,7 +33,7 @@ class CarouselHeaderController extends Controller
         $foto3 = $request->header3;
 
         if ($foto1 != null) {
-            $namaFile1 = time().'.'.$foto1->getClientOriginalExtension();
+            $namaFile1 = "1".time().'.'.$foto1->getClientOriginalExtension();
             Image::make($foto1)->resize(1200,600,function ($constraint) {
                 $constraint->aspectRatio();
             })->save('asset-carousel/'.$namaFile1);
@@ -41,7 +41,7 @@ class CarouselHeaderController extends Controller
         }
         
         if ($foto2 != null) {
-            $namaFile2 = time().'.'.$foto2->getClientOriginalExtension();
+            $namaFile2 = "2".time().'.'.$foto2->getClientOriginalExtension();
             Image::make($foto2)->resize(1200,600,function ($constraint) {
                 $constraint->aspectRatio();
             })->save('asset-carousel/'.$namaFile2);
@@ -49,7 +49,7 @@ class CarouselHeaderController extends Controller
         }
 
         if ($foto3 != null) {
-            $namaFile3 = time().'.'.$foto3->getClientOriginalExtension();
+            $namaFile3 = "3".time().'.'.$foto3->getClientOriginalExtension();
             Image::make($foto3)->resize(1200,600,function ($constraint) {
                 $constraint->aspectRatio();
             })->save('asset-carousel/'.$namaFile3);

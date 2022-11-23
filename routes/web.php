@@ -1,16 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CarouselHeaderController;
 
+// Guest
+Route::get('/', [GuestController::class,'index'])->name('landing-page');
+Route::get('/article', [GuestController::class,'listArticle'])->name('article.list');
+Route::get('/product', [GuestController::class,'listProduct'])->name('product.list');
+Route::get('/article/detail/{id}', [GuestController::class,'detailArticle'])->name('article.detail');
+Route::get('/product/detail/{id}', [GuestController::class,'detailProduct'])->name('product.detail');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Admin
 Route::get('/login', [LoginController::class,'showLogin'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class,'logout'])->name('logout')->middleware('auth');

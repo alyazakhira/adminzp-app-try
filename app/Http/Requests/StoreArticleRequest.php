@@ -24,7 +24,7 @@ class StoreArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'judul' => 'required|max:255',
+            'judul' => 'required|max:75',
             'ringkasan' => 'required|max:200',
             'artikel' => 'required',
             'uploaded_at' => 'required',
