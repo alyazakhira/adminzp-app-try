@@ -26,8 +26,8 @@
             </li>
         </ul>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" id="input-search">
-            <button class="btn btn-outline-light" type="button" onclick="search()">Search</button>
+            <input class="form-control me-2 search" type="text" placeholder="Search" aria-label="Search" id="input-search">
+            <button class="btn btn-outline-light" type="button">Search</button>
         </form>
         </div>
     </div>

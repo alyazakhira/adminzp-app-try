@@ -4,7 +4,7 @@
 <script src="https://cdn.jsdelivr.net/mark.js/7.0.0/jquery.mark.min.js"></script>
 <script>
 $(function() {
-    $("input").on("input.highlight", function() {
+    $(".search").on("input.highlight", function() {
         // Determine specified search term
         var searchTerm = $(this).val();
         // Highlight search term inside a specific context
