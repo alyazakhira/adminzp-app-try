@@ -16,8 +16,9 @@
 
     <!-- Content Header -->
     <section class="mt-3 mb-4">
-        <h1 class="display-text fw-bold mb-2">Article Form</h1>
-        <p class="h2-text mt-2">Guess it's something amazing isn't it?</h2>
+        <h1 class="display-text fw-bold mb-2">Daftar Artikel</h1>
+        <p class="h2-text mt-2">Tebak, itu merupakan sesuatu yang luar biasa, bukan?</h2>
+        <!-- <p class="h2-text mt-2">Guess it's something amazing isn't it?</h2> -->
     </section>
 
     <!-- Form -->

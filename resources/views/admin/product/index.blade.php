@@ -15,11 +15,13 @@
     <section class="mt-3 mb-4">
         <div class="row align-items-center">
             <div class="col-lg-9">
-                <h1 class="display-text fw-bold mb-2">Product List</h1>
-                <p class="h2-text mt-2">Made with love and care.</h2>
+                <h1 class="display-text fw-bold mb-2">Daftar Produk</h1>
+                <!-- <h1 class="display-text fw-bold mb-2">Product List</h1> -->
+                <p class="h2-text mt-2">Dibuat dengan sepenuh hati.</h2>
+                <!-- <p class="h2-text mt-2">Made with love and care.</h2> -->
             </div>
             <div class="col-lg-3">
-                <a href="/product/create" class="btn btn-success w-100 py-2 h2-text" type="button">+ Add New</a>
+                <a href="/product/create" class="btn btn-success w-100 py-2 h2-text" type="button">+ Tambah Baru</a>
             </div>
         </div>
     </section>

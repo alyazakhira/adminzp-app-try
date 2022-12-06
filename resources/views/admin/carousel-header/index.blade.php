@@ -141,6 +141,7 @@
                         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
                             <form action="/logout" method="POST">
                                 @csrf
+                                <button type="submit" class="dropdown-item">Keluar</button>
                                 <button type="submit" class="dropdown-item">Logout</button>
                             </form>
                         </ul>
@@ -185,7 +186,8 @@
                     <!-- Content Header -->
                     <section class="mt-3 mb-4">
                         <h1 class="display-text fw-bold mb-2">Carousel-Header</h1>
-                        <p class="h2-text mt-2">It is some beautiful things that placed in the front door to attract lovely people!</h2>
+                        <p class="h2-text mt-2">Ini adalah sesuatu yang diletakkan di bagian depan untuk menarik pengunjung!</h2>
+                        <!-- <p class="h2-text mt-2">It is some beautiful things that placed in the front door to attract lovely people!</h2> -->
                     </section>
 
                     <!-- Form -->
@@ -204,7 +206,8 @@
                                                 <input class="form-control" type="file" id="formFile1" name="header1" onchange="preview1()">
                                             </div>
                                             {{-- <div class="ms-2">
-                                                <button onclick="clearImage1()" class="btn btn-danger" type="button">Clear</button>
+                                                <button onclick="clearImage1()" class="btn btn-danger" type="button">Bersihkan</button>
+                                                <!-- <button onclick="clearImage1()" class="btn btn-danger" type="button">Clear</button> -->
                                             </div> --}}
                                         </div>
                                     </div>
@@ -228,7 +231,8 @@
                                                 <input class="form-control" type="file" id="formFile2" name="header2" onchange="preview2()">
                                             </div>
                                             {{-- <div class="ms-2">
-                                                <button onclick="clearImage2()" class="btn btn-danger" type="button">Clear</button>
+                                                <button onclick="clearImage2()" class="btn btn-danger" type="button">Bersihkan</button>
+                                                <!-- <button onclick="clearImage2()" class="btn btn-danger" type="button">Clear</button> -->
                                             </div> --}}
                                         </div>
                                     </div>
@@ -256,7 +260,8 @@
                                                 <input class="form-control" type="file" id="formFile3" name="header3" onchange="preview3()">
                                             </div>
                                             {{-- <div class="ms-2">
-                                                <button onclick="clearImage3()" class="btn btn-danger" type="reset">Clear</button>
+                                                <button onclick="clearImage3()" class="btn btn-danger" type="reset">Bersihkan</button>
+                                                <!-- <button onclick="clearImage3()" class="btn btn-danger" type="reset">Clear</button> -->
                                             </div> --}}
                                         </div>
                                     </div>
@@ -282,7 +287,8 @@
                         <!-- Publish Button -->
                         <div class="row">
                             <div class="d-grid gap-2 mx-auto">
-                                <button class="btn btn-success btn-lg" type="submit">Publish</button>
+                                <button class="btn btn-success btn-lg" type="submit">Simpan</button>
+                                <!-- <button class="btn btn-success btn-lg" type="submit">Publish</button> -->
                             </div>
                         </div>
                     </form>

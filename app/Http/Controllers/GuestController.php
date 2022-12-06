@@ -47,7 +47,6 @@ class GuestController extends Controller
         $no_article = 5 * ($article->currentPage() - 1);
         $no_product = 5 * ($product->currentPage() - 1);
         
-        return view('guest.search', compact('article', 'product', 'no_article', 'no_product', 'key'));
-        // return view('guest.search', compact('product', 'no', 'key'));
+        return view('guest.guest-search', compact('article', 'product', 'no_article', 'no_product', 'key'));
     }
 }

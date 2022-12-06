@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title display-6 fw-bold mb-4 mt-2">Sedotan</h5>
-                    <p class="card-text overflow-auto" style="height: 300px;">
+                    <p class="card-text overflow-auto" style="height: 200px;">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget porttitor diam. Sed ullamcorper 
                         augue a nulla eleifend, eu rhoncus dolor aliquam. Sed sit amet diam tempor, egestas urna nec, porta 
                         diam. Morbi mattis vel sapien sed pulvinar. Pellentesque nec ultrices massa. Mauris tempor convallis 

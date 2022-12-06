@@ -5,8 +5,10 @@
 @section('content')
     <!-- Content Header -->
     <section class="mt-3 mb-4">
-        <h1 class="display-text fw-bold mb-2">Edit Product</h1>
-        <p class="h2-text mt-2">Updating some beautiful product, eh?</h2>
+        <!-- <h1 class="display-text fw-bold mb-2">Edit Product</h1> -->
+        <h1 class="display-text fw-bold mb-2">Ubah Produk</h1>
+        <p class="h2-text mt-2">Wow, memperbaharui beberapa produk cantik, eh?</h2>
+        <!-- <p class="h2-text mt-2">Updating some beautiful product, eh?</h2> -->
     </section>
 
     <!-- Form -->

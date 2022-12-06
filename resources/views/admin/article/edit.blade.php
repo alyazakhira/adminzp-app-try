@@ -5,8 +5,9 @@
 @section('content')
     <!-- Content Header -->
     <section class="mt-3 mb-4">
-        <h1 class="display-text fw-bold mb-2">Article Form</h1>
-        <p class="h2-text mt-2">Is there something wrong?</h2>
+        <h1 class="display-text fw-bold mb-2">Form Artikel</h1>
+        <p class="h2-text mt-2">Apakah ada yang salah?</h2>
+        <!-- <p class="h2-text mt-2">Is there something wrong?</h2> -->
     </section>
 
     <!-- Form -->

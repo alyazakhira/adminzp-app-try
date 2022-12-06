@@ -11,5 +11,4 @@
         <p class="mt-4"><strong>Diunggah pada:</strong> {{ $artikel->uploaded_at }}</p>
         <div>{!! $artikel->artikel !!}</div>
     </div>
-
 @endsection

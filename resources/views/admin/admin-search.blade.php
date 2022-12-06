@@ -73,7 +73,7 @@
             </div>
             @else
             <div class="alert alert-warning">
-                Wah, sayang sekali kata {{$key}} tidak ditemukan
+                Wah, sayang sekali kata <strong>{{$key}}</strong> tidak ditemukan
             </div>
             @endif
             <!-- Table -->
@@ -141,7 +141,7 @@
             </div>
             @else
             <div class="alert alert-warning">
-                Wah, sayang sekali kata {{$key}} tidak ditemukan
+                Wah, sayang sekali kata <strong>{{$key}}</strong> tidak ditemukan
             </div>
             @endif
 
