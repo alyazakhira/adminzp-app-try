@@ -5,6 +5,42 @@
 @endsection
 
 @section('content')
+    <style type="text/css">
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-button {
+        width: 0px;
+        height: 0px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #bfbfbf;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #8c8c8c;
+    }
+    ::-webkit-scrollbar-thumb:active {
+        background: #8c8c8c;
+    }
+    /* ::-webkit-scrollbar-track {
+    background: #007f6d;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+    }
+    ::-webkit-scrollbar-track:hover {
+    background: #006557;
+    }
+    ::-webkit-scrollbar-track:active {
+    background: #004c41;
+    } */
+    ::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+    </style>
+
     <div class="card mb-3 mt-5 d-none d-sm-block shadow-lg bg-body rounded" style="width: 70%; margin: 0 auto; background-color: #317873;">
         <div class="row">
             <div class="col-md-4">

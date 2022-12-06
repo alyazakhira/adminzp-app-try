@@ -88,6 +88,40 @@
                 opacity: 1;
                 transform: translateX(20%);
             }
+
+            ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            }
+            ::-webkit-scrollbar-button {
+            width: 0px;
+            height: 0px;
+            }
+            ::-webkit-scrollbar-thumb {
+            background: #bfbfbf;
+            border: 0px none #ffffff;
+            border-radius: 50px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+            background: #8c8c8c;
+            }
+            ::-webkit-scrollbar-thumb:active {
+            background: #8c8c8c;
+            }
+            /* ::-webkit-scrollbar-track {
+            background: #007f6d;
+            border: 0px none #ffffff;
+            border-radius: 50px;
+            }
+            ::-webkit-scrollbar-track:hover {
+            background: #006557;
+            }
+            ::-webkit-scrollbar-track:active {
+            background: #004c41;
+            } */
+            ::-webkit-scrollbar-corner {
+            background: transparent;
+            }
         </style>
     </head>
   <body id="context">
@@ -150,7 +184,8 @@
                         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
+                                <button type="submit" class="dropdown-item">Keluar</button>
+                                <!-- <button type="submit" class="dropdown-item">Logout</button> -->
                             </form>
                         </ul>
                     </div>
@@ -187,7 +222,8 @@
                     <!-- Content Header -->
                     <section class="mt-3 mb-4">
                         <h1 class="display-text fw-bold mb-2">Dashboard</h1>
-                        <p class="h2-text mt-2">Welcome, {{ auth()->user()->name }}! Here is your statistic, keep up the good work!</h2>
+                        <p class="h2-text mt-2">Selamat datang, {{ auth()->user()->name }}! Berikut ini adalah statistik Anda, semangat!</h2>
+                        <!-- <p class="h2-text mt-2">Welcome, {{ auth()->user()->name }}! Here is your statistic, keep up the good work!</h2> -->
                     </section>
 
                      <!-- Highlight Card -->
@@ -203,8 +239,10 @@
                                             </svg>
                                         </div>
                                         <div class="vstack text-start">
-                                            <p class="card-text h2-text fw-semibold mb-0" style="color: white;">{{ $jumlah_artikel }} Articles</p>
-                                            <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Posted</p>
+                                            <p class="card-text h2-text fw-semibold mb-0" style="color: white;">{{ $jumlah_artikel }} Artikel</p>
+                                            <!-- <p class="card-text h2-text fw-semibold mb-0" style="color: white;">{{ $jumlah_artikel }} Article</p> -->
+                                            <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Diposting</p>
+                                            <!-- <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Posted</p> -->
                                         </div>
                                         <div class="card-icon me-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -225,8 +263,10 @@
                                             </svg>
                                         </div>
                                         <div class="vstack text-start">
-                                            <p class="card-text h2-text fw-semibold mb-0" style="color: white;">{{ $jumlah_produk }} Product</p>
-                                            <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Made</p>
+                                            <p class="card-text h2-text fw-semibold mb-0" style="color: white;">{{ $jumlah_produk }} Produk</p>
+                                            <!-- <p class="card-text h2-text fw-semibold mb-0" style="color: white;">{{ $jumlah_produk }} Product</p> -->
+                                            <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Dibuat</p>
+                                            <!-- <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Made</p> -->
                                         </div>
                                         <div class="card-icon me-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -248,8 +288,9 @@
                                             </svg>
                                         </div>
                                         <div class="vstack text-start">
-                                            <p class="card-text h2-text fw-semibold mb-0" style="color: white;">99 News</p>
-                                            <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Sent</p>
+                                            <p class="card-text h2-text fw-semibold mb-0" style="color: white;">99 Koran</p>
+                                            <!-- <p class="card-text h2-text fw-semibold mb-0" style="color: white;">99 News</p> -->
+                                            <p class="card-text par-text fw-light" style="color: rgb(223, 223, 223);">Dikirim</p>
                                         </div>
                                         <div class="card-icon me-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -270,8 +311,11 @@
                             <div class="col-sm-6 mb-3">
                                 <div class="card">
                                     <div class="card-header h2-text fw-bolder py-3">
-                                        Recent Articles
+                                        Artikel Terbaru
                                     </div>
+                                    <!-- <div class="card-header h2-text fw-bolder py-3">
+                                        Recent Articles
+                                    </div> -->
                                     <div class="scrollable">
                                         <ul class="list-group list-group-flush">
                                             @foreach ($artikel as $row)
@@ -287,8 +331,11 @@
                             <div class="col-sm-6 mb-3">
                                 <div class="card">
                                     <div class="card-header h2-text fw-bolder py-3">
-                                        Latest Product
+                                        Produk Terbaru
                                     </div>
+                                    <!-- <div class="card-header h2-text fw-bolder py-3">
+                                        Latest Product
+                                    </div> -->
                                     <div class="scrollable">
                                         <ul class="list-group list-group-flush">
                                             @foreach ($produk as $row)
@@ -301,11 +348,8 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </section>
-
                 </div>
             </div>
         </div>
