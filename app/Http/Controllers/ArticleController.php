@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use App\Models\Article;
+use App\Models\Product;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
-use Image;
 
 class ArticleController extends Controller
 {
@@ -126,5 +128,18 @@ class ArticleController extends Controller
         $artikel = Article::find($id);
         $artikel->delete();
         return redirect('/article/index')->with('pesan','Artikel berhasil dihapus');
+    }
+
+    public function search(Request $request){
+        $key = $request->keyword;
+        $article = Article::where('judul','like',"%".$key."%")
+        ->orwhere('ringkasan','like',"%".$key."%")->paginate(5);
+
+        $product = Product::where('nama','like',"%".$key."%")
+        ->orwhere('ringkasan','like',"%".$key."%")->paginate(5);
+        $no_article = 5 * ($article->currentPage() - 1);
+        $no_product = 5 * ($product->currentPage() - 1);
+        
+        return view('admin.admin-search', compact('article', 'product', 'no_article', 'no_product', 'key'));
     }
 }

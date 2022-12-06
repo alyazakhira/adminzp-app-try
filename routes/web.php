@@ -14,6 +14,8 @@ Route::get('/product', [GuestController::class,'listProduct'])->name('product.li
 Route::get('/article/detail/{id}', [GuestController::class,'detailArticle'])->name('article.detail');
 Route::get('/product/detail/{id}', [GuestController::class,'detailProduct'])->name('product.detail');
 
+Route::get('/search', [GuestController::class,'search'])->name('user.search');
+
 // Admin
 Route::get('/login', [LoginController::class,'showLogin'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'authenticate'])->name('authenticate');
@@ -38,3 +40,5 @@ Route::post('/product/delete/{id}',[ProductController::class,'destroy'])->name('
 
 Route::get('/header/index', [CarouselHeaderController::class,'index'])->name('header.index');
 Route::post('/header', [CarouselHeaderController::class,'update'])->name('header.update');
+
+Route::get('/search-admin', [ArticleController::class,'search'])->name('admin.search');

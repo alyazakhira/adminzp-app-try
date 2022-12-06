@@ -36,4 +36,18 @@ class GuestController extends Controller
         $produk = Product::find($id);
         return view('guest.productDetail',compact('produk'));
     }
+
+    public function search(Request $request){
+        $key = $request->keyword;
+        $article = Article::where('judul','like',"%".$key."%")
+        ->orwhere('ringkasan','like',"%".$key."%")->paginate(5);
+
+        $product = Product::where('nama','like',"%".$key."%")
+        ->orwhere('ringkasan','like',"%".$key."%")->paginate(5);
+        $no_article = 5 * ($article->currentPage() - 1);
+        $no_product = 5 * ($product->currentPage() - 1);
+        
+        return view('guest.search', compact('article', 'product', 'no_article', 'no_product', 'key'));
+        // return view('guest.search', compact('product', 'no', 'key'));
+    }
 }
